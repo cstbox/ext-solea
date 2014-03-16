@@ -1,0 +1,124 @@
+{
+    "productname" : "SOLEA.AD12B",
+    "__descr__" : {
+        "*" : "Multi-parameters electric sensor (DC)",
+        "fr" : "Capteur électrique multi-paramètres (CC)"
+    },
+    "supports" : [],
+    "pdefs" : {
+        "root" : {
+            "__seq__" : ["address", "location", "enabled", "polling", "events_ttl", "U_range", "I_range", "TI_loops"],
+            "polling" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Période lecture",
+                    "*" : "Polling period"
+                },
+                "defvalue" : "1m"
+            },
+            "events_ttl" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Validité des événements",
+                    "*" : "Events time to live"
+                },
+                "defvalue" : "2h"
+            },
+            "U_range" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Calibre tension",
+                    "*" : "Voltage range"
+                },
+                "defvalue" : 800
+            },
+            "I_range" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Calibre intensité",
+                    "*" : "Current range"
+                },
+                "defvalue" : 60
+            },
+            "TI_loops" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Nombre de boucles TI",
+                    "*" : "TI loops count"
+                },
+                "defvalue" : 1
+            }
+        },
+        "outputs" : {
+            "__seq__" : ["U", "I", "P", "W"],
+            "U" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" : {
+                    "fr" : "Tension",
+                    "*" : "Voltage"
+                },
+                "__vartype__" : "voltage",
+                "__varunits__" : "V",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 5
+                }
+            },
+            "I" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Intensité",
+                    "*" : "Current"
+                },
+                "__vartype__" : "current",
+                "__varunits__" : "A",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            },
+            "P" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Puissance active",
+                    "*" : "Active power"
+                },
+                "__vartype__" : "power",
+                "__varunits__" : "W",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 5
+                }
+            },
+           "W" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Energie",
+                    "*" : "Active"
+                },
+                "__vartype__" : "energy",
+                "__varunits__" : "Wh",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            }
+        }
+    }
+}

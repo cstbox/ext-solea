@@ -1,0 +1,109 @@
+{
+    "productname" : "SOLEA.SCS",
+    "__descr__" : {
+        "*" : "Photo-voltaic panel monitoring module",
+        "fr" : "Module de suivi de panneau photo-voltaïque"
+    },
+    "supports" : [],
+    "pdefs" : {
+        "root" : {
+            "__seq__" : ["address", "location", "enabled", "polling", "events_ttl"],
+            "polling" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Période lecture",
+                    "*" : "Polling period"
+                },
+                "defvalue" : "1m"
+            },
+            "events_ttl" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Validité des événements",
+                    "*" : "Events time to live"
+                },
+                "defvalue" : "2h"
+            }
+        },
+        "outputs" : {
+            "__seq__" : ["U", "I", "temp", "P", "W"],
+            "U" : {
+                "__seq__" : ["enabled"],
+                "__descr__" : {
+                    "fr" : "Tension",
+                    "*" : "Voltage"
+                },
+                "__vartype__" : "voltage",
+                "__varunits__" : "V"
+            },
+            "I" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Intensité",
+                    "*" : "Current"
+                },
+                "__vartype__" : "current",
+                "__varunits__" : "A",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 0.02
+                }
+            },
+            "temp" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Température",
+                    "*" : "Temperature"
+                },
+                "__vartype__" : "temperature",
+                "__varunits__" : "degC",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 0.5
+                }
+            },
+            "P" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Puissance instantanée",
+                    "*" : "Instant power"
+                },
+                "__vartype__" : "power",
+                "__varunits__" : "W",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 5
+                }
+            },
+            "W" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Energie",
+                    "*" : "Energy"
+                },
+                "__vartype__" : "energy",
+                "__varunits__" : "Wh",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            }
+        }
+    }
+}

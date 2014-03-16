@@ -1,0 +1,259 @@
+{
+    "productname" : "SOLEA.AJ42",
+    "__descr__" : {
+        "*" : "Multi-parameters electric sensor (AC tri)",
+        "fr" : "Capteur électrique multi-paramètres (AC tri)"
+    },
+    "supports" : [],
+    "pdefs" : {
+        "root" : {
+            "__seq__" : ["address", "location", "enabled", "polling", "events_ttl", "TI_loops"],
+            "polling" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Période lecture",
+                    "*" : "Polling period"
+                },
+                "defvalue" : "1m"
+            },
+            "events_ttl" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Validité des événements",
+                    "*" : "Events time to live"
+                },
+                "defvalue" : "2h"
+            },
+            "U_range" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Calibre tension",
+                    "*" : "Voltage range"
+                },
+                "defvalue" : 230
+            },
+            "I_range" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Calibre intensité",
+                    "*" : "Current range"
+                },
+                "defvalue" : 25
+            },
+            "TI_loops" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Nombre de boucles TI",
+                    "*" : "TI loops count"
+                },
+                "defvalue" : 1
+             }
+        },
+        "outputs" : {
+            "__seq__" : ["U_a", "I_a", "U_b", "I_b", "U_c", "I_c", "P", "Q", "cos_phi", "F", "Wa", "Wr"],
+            "U_a" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" : {
+                    "fr" : "Tension (ph A)",
+                    "*" : "Voltage (ph A)"
+                },
+                "__vartype__" : "voltage",
+                "__varunits__" : "V",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 2
+                }
+            },
+            "I_a" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Intensité (ph A)",
+                    "*" : "Current (ph A)"
+                },
+                "__vartype__" : "current",
+                "__varunits__" : "A",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            },
+            "U_b" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" : {
+                    "fr" : "Tension (ph B)",
+                    "*" : "Voltage (ph B)"
+                },
+                "__vartype__" : "voltage",
+                "__varunits__" : "V",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 2
+                }
+            },
+            "I_b" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Intensité (ph B)",
+                    "*" : "Current (ph B)"
+                },
+                "__vartype__" : "current",
+                "__varunits__" : "A",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            },
+            "U_c" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" : {
+                    "fr" : "Tension (ph C)",
+                    "*" : "Voltage (ph C)"
+                },
+                "__vartype__" : "voltage",
+                "__varunits__" : "V",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 2
+                }
+            },
+            "I_c" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Intensité (ph C)",
+                    "*" : "Current (ph C)"
+                },
+                "__vartype__" : "current",
+                "__varunits__" : "A",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            },
+            "P" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Puissance active",
+                    "*" : "Active power"
+                },
+                "__vartype__" : "power",
+                "__varunits__" : "kW",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 0.002
+                }
+            },
+            "Q" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Puissance réactive",
+                    "*" : "Reactive power"
+                },
+                "__vartype__" : "power.reactive",
+                "__varunits__" : "kVAr",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 0.002
+                }
+            },
+            "cos_phi" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Facteur de puissance",
+                    "*" : "Power factor"
+                },
+                "__vartype__" : "power_factor",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 0.01
+                }
+            },
+            "F" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Fréquence",
+                    "*" : "Frequency"
+                },
+                "__vartype__" : "frequency",
+                "__varunits__" : "Hz",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 0.5
+                }
+            },
+            "Wa" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Energie active",
+                    "*" : "Active energy"
+                },
+                "__vartype__" : "energy",
+                "__varunits__" : "kWh",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            },
+            "Wr" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Energie réactive",
+                    "*" : "Reactive energy"
+                },
+                "__vartype__" : "energy.reactive",
+                "__varunits__" : "kVArh",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            }
+        }
+    }
+}

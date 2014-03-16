@@ -1,0 +1,191 @@
+{
+    "productname" : "SOLEA.AJ12B",
+    "__descr__" : {
+        "*" : "Multi-parameters electric sensor",
+        "fr" : "Capteur électrique multi-paramètres"
+    },
+    "supports" : [],
+    "pdefs" : {
+        "root" : {
+            "__seq__" : ["address", "location", "enabled", "polling", "events_ttl", "TI_loops"],
+            "polling" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Période lecture",
+                    "*" : "Polling period"
+                },
+                "defvalue" : "1m"
+            },
+            "events_ttl" : {
+                "type" : "period",
+                "label" : {
+                    "fr" : "Validité des événements",
+                    "*" : "Events time to live"
+                },
+                "defvalue" : "2h"
+            },
+            "U_range" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Calibre tension",
+                    "*" : "Voltage range"
+                },
+                "defvalue" : 230
+            },
+            "I_range" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Calibre intensité",
+                    "*" : "Current range"
+                },
+                "defvalue" : 25
+            },
+            "TI_loops" : {
+                "type" : "int",
+                "label" : {
+                    "fr" : "Nombre de boucles TI",
+                    "*" : "TI loops count"
+                },
+                "defvalue" : 1
+            }
+        },
+        "outputs" : {
+            "__seq__" : ["U", "I", "P", "Q", "cos_phi", "F", "Wa", "Wr"],
+            "U" : {
+                "__seq__" : ["enabled","delta_min"],
+                "__descr__" : {
+                    "fr" : "Tension",
+                    "*" : "Voltage"
+                },
+                "__vartype__" : "voltage",
+                "__varunits__" : "V",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 2
+                }
+            },
+            "I" : {
+                "__seq__" : ["enabled","delta_min"],
+                "__descr__" :  {
+                    "fr" : "Intensité",
+                    "*" : "Current"
+                },
+                "__vartype__" : "current",
+                "__varunits__" : "A",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            },
+            "P" : {
+                "__seq__" : ["enabled","delta_min"],
+                "__descr__" :  {
+                    "fr" : "Puissance active",
+                    "*" : "Active power"
+                },
+                "__vartype__" : "power",
+                "__varunits__" : "kW",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 2
+                }
+            },
+            "Q" : {
+                "__seq__" : ["enabled","delta_min"],
+                "__descr__" :  {
+                    "fr" : "Puissance réactive",
+                    "*" : "Reactive power"
+                },
+                "__vartype__" : "power.reactive",
+                "__varunits__" : "kVAr",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 2
+                }
+            },
+            "cos_phi" : {
+                "__seq__" : ["enabled","delta_min"],
+                "__descr__" :  {
+                    "fr" : "Facteur de puissance",
+                    "*" : "Power factor"
+                },
+                "__vartype__" : "power_factor",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" :0.01 
+                }
+            },
+            "F" : {
+                "__seq__" : ["enabled","delta_min"],
+                "__descr__" :  {
+                    "fr" : "Fréquence",
+                    "*" : "Frequency"
+                },
+                "__vartype__" : "frequency",
+                "__varunits__" : "Hz",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 0.5
+                }
+            },
+            "Wa" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Energie active",
+                    "*" : "Active energy"
+                },
+                "__vartype__" : "energy",
+                "__varunits__" : "kWh",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            },
+            "Wr" : {
+                "__seq__" : ["enabled", "delta_min"],
+                "__descr__" :  {
+                    "fr" : "Energie réactive",
+                    "*" : "Reactive energy"
+                },
+                "__vartype__" : "energy.reactive",
+                "__varunits__" : "kVArh",
+                "delta_min" : {
+                    "type" : "float",
+                    "label" : {
+                        "fr" : "Variation minimale",
+                        "*" : "Variation threshold"
+                    },
+                    "defvalue" : 1
+                }
+            }
+        }
+    }
+}
