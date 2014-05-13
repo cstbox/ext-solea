@@ -8,3 +8,8 @@ Maintainer: Eric Pascual <eric.pascual@cstb.fr>
 Description: CSTBox SOLEA Modbus products support
     This package adds to an existing CSTBox framework the support
     for SOLEA Modbus products. 
+    .
+    Included products support:
+    - AJ12
+    - AJ42
+    - AD12
