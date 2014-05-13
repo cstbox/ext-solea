@@ -70,9 +70,9 @@ class SCSInstrument(SoleaInstrument):
     # Definition of the type of the poll() method result
 
     # VERY IMPORTANT :
-    # The name of its items MUST match with the name of the outputs described
+    # The names of its items MUST match the names of the outputs described
     # in the metadata stored in devcfg.d directory, since the notification
-    # events generation process
+    # events generation process uses this key to map them.
     # (see pycstbox.hal.device.PolledDevice.poll() method for details)
     OutputValues = namedtuple('OutputValues', [
         'U',        # instant voltage (V)
