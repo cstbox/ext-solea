@@ -12,5 +12,6 @@ include $(CSTBOX_DEVEL_HOME)/lib/makefile-dist.mk
 
 copy_files: \
 	check_metadata_files \
+	copy_devices_metadata_files \
 	copy_python_files 
 
