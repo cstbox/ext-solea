@@ -19,10 +19,7 @@
 """ HAL interface classes for SOLEA supported products. """
 
 import logging
-import inspect
-import sys
 
-import pycstbox.devcfg as devcfg
 import pycstbox.hal.device as haldev
 import pycstbox.solea.aj12b as aj12b
 import pycstbox.solea.aj42 as aj42
