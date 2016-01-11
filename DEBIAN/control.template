@@ -1,6 +1,6 @@
 Package: cstbox-ext-solea
-Version: 1.0.0
-Section: base
+Version: %(version)s
+Section: embedded
 Priority: optional
 Architecture: all
 Depends: cstbox-core, cstbox-ext-modbus
