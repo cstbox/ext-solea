@@ -3,7 +3,7 @@ Version: %(version)s
 Section: embedded
 Priority: optional
 Architecture: all
-Depends: cstbox-core, cstbox-ext-modbus
+Depends: cstbox-core, cstbox-ext-modbus (>=2.0.0)
 Maintainer: Eric Pascual <eric.pascual@cstb.fr>
 Description: CSTBox SOLEA Modbus products support
     This package adds to an existing CSTBox framework the support
@@ -13,3 +13,4 @@ Description: CSTBox SOLEA Modbus products support
     - AJ12
     - AJ42
     - AD12
+    - SCS
