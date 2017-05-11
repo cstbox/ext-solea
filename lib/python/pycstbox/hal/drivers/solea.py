@@ -20,7 +20,6 @@
 
 import logging
 
-import pycstbox.hal.device as haldev
 import pycstbox.solea.aj12b as aj12b
 import pycstbox.solea.aj42 as aj42
 import pycstbox.solea.ad12b as ad12b

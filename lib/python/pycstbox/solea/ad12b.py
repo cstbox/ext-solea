@@ -31,17 +31,10 @@ from collections import namedtuple
 
 from pycstbox.modbus import ModbusRegister
 from pycstbox.solea.shared import SoleaInstrument, FULL_RANGE
-import pycstbox.log
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 __copyright__ = 'Copyright (c) 2013 CSTB'
-__vcs_id__ = '$Id$'
-__version__ = '1.0.0'
 
-from os.path import basename, splitext
-log_name = splitext(basename(__file__))[0]
-_logger = pycstbox.log.getLogger(log_name)
-del basename, splitext
 
 REG_VOLTAGE = ModbusRegister(0x10)
 REG_INTENSITY = ModbusRegister(0x11)
@@ -104,7 +97,7 @@ class AD12BInstrument(SoleaInstrument):
         :param float i_range: real values range for intensity
         :param int ti_loops: number of wiring loops in TI (acts as current amplification factor)
         """
-        SoleaInstrument.__init__(self, port=port, unit_id=unit_id)
+        SoleaInstrument.__init__(self, port=port, unit_id=unit_id, logname='ad12b')
 
         u_range = float(u_range)
         i_range = float(i_range) / ti_loops
@@ -142,7 +135,7 @@ class AD12BInstrument(SoleaInstrument):
         if self._check_I and outputs.I > self.i_range:
             outputs = self.OutputValues(outputs.U, 0., 0., outputs.W)
             if not self._invalid_I_notified:
-                _logger.warn(
+                self.logger.warn(
                     'under range current value replaced by 0 for AD12B id=%d',
                     self.unit_id
                 )

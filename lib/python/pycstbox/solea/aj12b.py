@@ -34,8 +34,6 @@ from pycstbox.solea.shared import SoleaInstrument, FULL_RANGE
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 __copyright__ = 'Copyright (c) 2012 CSTB'
-__vcs_id__ = '$Id$'
-__version__ = '1.0.0'
 
 REG_VOLTAGE = ModbusRegister(0x10)
 REG_INTENSITY = ModbusRegister(0x11)
@@ -109,7 +107,7 @@ class AJ12BInstrument(SoleaInstrument):
         :param float i_range: real values range for intensity
         :param int ti_loops: number of wiring loops in TI (acts as current amplification factor)
         """
-        SoleaInstrument.__init__(self, port=port, unit_id=unit_id)
+        SoleaInstrument.__init__(self, port=port, unit_id=unit_id, logname='aj12b')
 
         u_range = float(u_range)
         i_range = float(i_range) / ti_loops

@@ -34,8 +34,6 @@ from pycstbox.solea.shared import SoleaInstrument
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 __copyright__ = 'Copyright (c) 2013 CSTB'
-__vcs_id__ = '$Id$'
-__version__ = '1.0.0'
 
 
 REG_UNIT_ID = ModbusRegister(0x00)
@@ -98,7 +96,7 @@ class SCSInstrument(SoleaInstrument):
             unit_id:
                 the address of the device
         """
-        SoleaInstrument.__init__(self, port=port, unit_id=unit_id)
+        SoleaInstrument.__init__(self, port=port, unit_id=unit_id, logname='scs')
 
         self.RAW_TO_REAL = self._Raw_to_real(
             0.1,    # U
