@@ -17,20 +17,13 @@
 # License along with CSTBox.  If not, see <http://www.gnu.org/licenses/>.
 
 """ ModBus version of the Solea AD12B multi-parameters sensor.
-
-This modules provides a sub-class of  minimalmodbus.Instrument which
-is specialized in talking to the AD12B sensor.
-
-Depends on Jonas Berg's minimalmodbus Python library :
-    https://pypi.python.org/pypi/MinimalModbus/
-    Version in date of writing: 0.4
 """
 
 import struct
 from collections import namedtuple
 
 from pycstbox.modbus import ModbusRegister
-from pycstbox.solea.shared import SoleaInstrument, FULL_RANGE
+from pycstbox.solea.shared import SoleaHWDevice, FULL_RANGE
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 __copyright__ = 'Copyright (c) 2013 CSTB'
@@ -56,7 +49,7 @@ DEFAULT_U_RANGE = 800
 DEFAULT_I_RANGE = 60
 
 
-class AD12BInstrument(SoleaInstrument):
+class AD12BHWDevice(SoleaHWDevice):
     """ Solea AD12B multi-parameters module Modbus instrument model.
 
     The supported model is the RTU RS485 one, the RS485 bus being connected
@@ -97,7 +90,7 @@ class AD12BInstrument(SoleaInstrument):
         :param float i_range: real values range for intensity
         :param int ti_loops: number of wiring loops in TI (acts as current amplification factor)
         """
-        SoleaInstrument.__init__(self, port=port, unit_id=unit_id, logname='ad12b')
+        SoleaHWDevice.__init__(self, port=port, unit_id=unit_id, logname='ad12b')
 
         u_range = float(u_range)
         i_range = float(i_range) / ti_loops

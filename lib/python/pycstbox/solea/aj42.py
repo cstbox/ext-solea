@@ -17,20 +17,13 @@
 # License along with CSTBox.  If not, see <http://www.gnu.org/licenses/>.
 
 """ ModBus version of the Solea AJ42 multi-parameters sensor.
-
-This modules provides a sub-class of  minimalmodbus.Instrument which
-is specialized in talking to the AJ42 sensor.
-
-Depends on Jonas Berg's minimalmodbus Python library :
-    https://pypi.python.org/pypi/MinimalModbus/
-    Version in date of writing: 0.4
 """
 
 import struct
 from collections import namedtuple
 
 from pycstbox.modbus import ModbusRegister
-from pycstbox.solea.shared import SoleaInstrument, FULL_RANGE
+from pycstbox.solea.shared import SoleaHWDevice, FULL_RANGE
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 __copyright__ = 'Copyright (c) 2013 CSTB'
@@ -69,7 +62,7 @@ REG_RESET_ENERGY_COUNTERS = ModbusRegister(0xa7, cfgreg=True)
 REG_ADDR_BAUDRATE = ModbusRegister(0x20, cfgreg=True)
 
 
-class AJ42BInstrument(SoleaInstrument):
+class AJ42BHWDevice(SoleaHWDevice):
     """ Solea AJ42 tri-phases multi-parameters module Modbus instrument model.
 
     The supported model is the RTU RS485 one, the RS485 bus being connected
@@ -128,7 +121,7 @@ class AJ42BInstrument(SoleaInstrument):
                 number of wiring loops in TI (acts as current
                 amplification factor)
         """
-        SoleaInstrument.__init__(self, port=port, unit_id=unit_id, logname='aj42')
+        SoleaHWDevice.__init__(self, port=port, unit_id=unit_id, logname='aj42')
 
         u_range = float(u_range)
         i_range = float(i_range) / ti_loops

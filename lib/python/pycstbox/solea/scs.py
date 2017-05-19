@@ -17,20 +17,13 @@
 # License along with CSTBox.  If not, see <http://www.gnu.org/licenses/>.
 
 """ Solea SCS photo-voltaic panel monitoring module.
-
-This modules provides a sub-class of  minimalmodbus.Instrument which
-is specialized in talking to the SCS module.
-
-Depends on Jonas Berg's minimalmodbus Python library :
-    https://pypi.python.org/pypi/MinimalModbus/
-    Version in date of writing: 0.4
 """
 
 import struct
 from collections import namedtuple
 
 from pycstbox.modbus import ModbusRegister
-from pycstbox.solea.shared import SoleaInstrument
+from pycstbox.solea.shared import SoleaHWDevice
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 __copyright__ = 'Copyright (c) 2013 CSTB'
@@ -58,7 +51,7 @@ ALL_PARMS_SIZE = reduce(lambda sztot, sz : sztot + sz,
                         ]])
 
 
-class SCSInstrument(SoleaInstrument):
+class SCSHWDevice(SoleaHWDevice):
     """ Solea SCS multi-parameters module Modbus instrument model.
 
     The supported model is the RTU RS485 one, the RS485 bus being connected
@@ -96,7 +89,7 @@ class SCSInstrument(SoleaInstrument):
             unit_id:
                 the address of the device
         """
-        SoleaInstrument.__init__(self, port=port, unit_id=unit_id, logname='scs')
+        SoleaHWDevice.__init__(self, port=port, unit_id=unit_id, logname='scs')
 
         self.RAW_TO_REAL = self._Raw_to_real(
             0.1,    # U

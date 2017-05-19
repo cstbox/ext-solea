@@ -17,20 +17,13 @@
 # License along with CSTBox.  If not, see <http://www.gnu.org/licenses/>.
 
 """ ModBus version of the Solea AJ12B multi-parameters sensor.
-
-This modules provides a sub-class of  minimalmodbus.Instrument which
-is specialized in talking to the AJ12B sensor.
-
-Depends on Jonas Berg's minimalmodbus Python library :
-    https://pypi.python.org/pypi/MinimalModbus/
-    Version in date of writing: 0.4
 """
 
 import struct
 from collections import namedtuple
 
 from pycstbox.modbus import ModbusRegister
-from pycstbox.solea.shared import SoleaInstrument, FULL_RANGE
+from pycstbox.solea.shared import SoleaHWDevice, FULL_RANGE
 
 __author__ = 'Eric PASCUAL - CSTB (eric.pascual@cstb.fr)'
 __copyright__ = 'Copyright (c) 2012 CSTB'
@@ -63,7 +56,7 @@ DEFAULT_U_RANGE = 230
 DEFAULT_I_RANGE = 25
 
 
-class AJ12BInstrument(SoleaInstrument):
+class AJ12BHWDevice(SoleaHWDevice):
     """ Solea AJ12B multi-parameters module Modbus instrument model.
 
     The supported model is the RTU RS485 one, the RS485 bus being connected
@@ -107,7 +100,7 @@ class AJ12BInstrument(SoleaInstrument):
         :param float i_range: real values range for intensity
         :param int ti_loops: number of wiring loops in TI (acts as current amplification factor)
         """
-        SoleaInstrument.__init__(self, port=port, unit_id=unit_id, logname='aj12b')
+        SoleaHWDevice.__init__(self, port=port, unit_id=unit_id, logname='aj12b')
 
         u_range = float(u_range)
         i_range = float(i_range) / ti_loops
@@ -128,10 +121,8 @@ class AJ12BInstrument(SoleaInstrument):
         """ Reads the registers holding the polled parameters and returns the
         values as a named tuple.
         """
-
-        raw_u, raw_i, raw_p, raw_q, raw_cosphi, raw_f, raw_wa, raw_wr = struct.unpack(
-            '>HHHHHHII',
-            self.read_string(REG_VOLTAGE.addr, ALL_PARMS_SIZE)
+        raw_u, raw_i, raw_p, raw_q, raw_cosphi, raw_f, raw_wa, raw_wr = self.unpack_registers(
+            REG_VOLTAGE, ALL_PARMS_SIZE, '>HHHHHHII'
         )
 
         outputs = self.OutputValues(

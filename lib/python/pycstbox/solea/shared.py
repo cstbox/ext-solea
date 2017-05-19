@@ -23,7 +23,7 @@ from pycstbox.modbus import RTUModbusHWDevice
 FULL_RANGE = 10000.
 
 
-class SoleaInstrument(RTUModbusHWDevice):
+class SoleaHWDevice(RTUModbusHWDevice):
     """ Base class for implementing models of SOLEA Modbus devices. """
 
     TRANSDUCER_NAME = None
@@ -35,7 +35,7 @@ class SoleaInstrument(RTUModbusHWDevice):
         :param int unit_id: the device unit id (aka address)
         :param str logname: the root name of the device logger 
         """
-        super(SoleaInstrument, self).__init__(port=port, unit_id=int(unit_id), logname=logname)
+        super(SoleaHWDevice, self).__init__(port=port, unit_id=int(unit_id), logname=logname)
 
     @property
     def unit_id(self):
