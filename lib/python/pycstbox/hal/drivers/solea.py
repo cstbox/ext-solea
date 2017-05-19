@@ -44,7 +44,7 @@ class AD12B(RTUModbusHALDevice):
     """
     def __init__(self, coord_cfg, dev_cfg):
         super(AD12B, self).__init__(coord_cfg, dev_cfg)
-        self._hwdev = ad12b.AD12BInstrument(
+        self._hwdev = ad12b.AD12BHWDevice(
             coord_cfg.port, dev_cfg.address, dev_cfg.U_range, dev_cfg.I_range
         )
 
@@ -60,7 +60,7 @@ class AJ12B(RTUModbusHALDevice):
     """
     def __init__(self, coord_cfg, dev_cfg):
         super(AJ12B, self).__init__(coord_cfg, dev_cfg)
-        self._hwdev = aj12b.AJ12BInstrument(
+        self._hwdev = aj12b.AJ12BHWDevice(
             coord_cfg.port, dev_cfg.address, dev_cfg.U_range, dev_cfg.I_range
         )
 
@@ -76,7 +76,7 @@ class AJ42B(RTUModbusHALDevice):
     """
     def __init__(self, coord_cfg, dev_cfg):
         super(AJ42B, self).__init__(coord_cfg, dev_cfg)
-        self._hwdev = aj42.AJ42BInstrument(
+        self._hwdev = aj42.AJ42BHWDevice(
             coord_cfg.port, dev_cfg.address, dev_cfg.U_range, dev_cfg.I_range
         )
 
@@ -90,4 +90,4 @@ class SCS(RTUModbusHALDevice):
     """
     def __init__(self, coord_cfg, dev_cfg):
         super(SCS, self).__init__(coord_cfg, dev_cfg)
-        self._hwdev = scs.SCSInstrument(coord_cfg.port, dev_cfg.address)
+        self._hwdev = scs.SCSHWDevice(coord_cfg.port, dev_cfg.address)
